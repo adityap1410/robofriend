@@ -1,11 +1,23 @@
 import React from 'react';
+import Card from './Card';
 
-const Scroll = (props) => {
+const CardList = ({ robots }) => {
   return (
-    <div style={{ overflow: 'scroll', border: '5px solid black', height: '800px'}}>
-      {props.children}
+    <div>
+      {
+        robots.map((user, i) => {
+          return (
+            <Card
+              key={i}
+              id={robots[i].id}
+              name={robots[i].name}
+              email={robots[i].email}
+              />
+          );
+        })
+      }
     </div>
   );
-};
+}
 
-export default Scroll;
+export default CardList;
